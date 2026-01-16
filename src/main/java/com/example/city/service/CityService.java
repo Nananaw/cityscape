@@ -1,13 +1,23 @@
 package com.example.city.service;
 
+import java.lang.classfile.ClassFile.Option;
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
 
 import com.example.city.domain.City;
 import com.example.city.domain.Trip;
 import com.example.city.repository.CityRepository;
 
+@Service
 public class CityService {
     private CityRepository cityRepository;
+
+    public CityService(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
+    }
+
 
     public City createCity(City city) {
         return cityRepository.saveCity(city);
@@ -33,11 +43,11 @@ public class CityService {
         return cityRepository.updateTrip(id, trip);
     }
 
-    public City findCityById(int id) {
+    public Optional<City> findCityById(int id) {
         return cityRepository.findCityById(id);
     }
 
-    public Trip findTripById(int id) {
+    public Optional<Trip> findTripById(int id) {
         return cityRepository.findTripById(id);
     }
 

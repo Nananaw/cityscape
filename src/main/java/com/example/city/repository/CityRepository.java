@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -56,12 +57,12 @@ public class CityRepository {
         trips.remove(id);
     }
 
-    public City findCityById(int id) {
-        return cities.get(id);
+    public Optional<City> findCityById(int id) {
+        return Optional.ofNullable(cities.get(id));
     }
 
-    public Trip findTripById(int id) {
-        return trips.get(id);
+    public Optional<Trip> findTripById(int id) {
+        return Optional.ofNullable(trips.get(id));
     }
 
     public List<City> findAllCities() {
