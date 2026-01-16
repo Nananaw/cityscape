@@ -22,6 +22,10 @@ public class CityController {
 
     private CityService cityService;
 
+    public CityController(CityService cityService) {
+        this.cityService = cityService;
+    }
+
     @GetMapping("/getAllCities")
     public List<City> getAllCities() {
         return cityService.findAllCities();
